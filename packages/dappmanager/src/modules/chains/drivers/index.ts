@@ -1,5 +1,8 @@
-import { ChainDriverSpecs, InstalledPackageData } from "../../../common";
-import { ChainDriver } from "../../../types";
+import {
+  ChainDriver,
+  ChainDriverSpecs,
+  InstalledPackageData
+} from "../../../common";
 import { ChainDataResult } from "../types";
 // Drivers
 import { bitcoin } from "./bitcoin";
@@ -20,7 +23,9 @@ export async function runWithChainDriver(
 ): Promise<ChainDataResult | null> {
   let chainDriverSpecs: ChainDriverSpecs;
   if (typeof chainDriver === "string") {
-    chainDriverSpecs = { driver: chainDriver };
+    chainDriverSpecs = {
+      driver: chainDriver
+    };
   } else {
     chainDriverSpecs = chainDriver;
   }

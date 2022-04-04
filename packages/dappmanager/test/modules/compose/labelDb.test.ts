@@ -13,7 +13,9 @@ describe("Parse and validate manifest labels to be used in the compose", () => {
       dependencies: { oneDependency: "dependency-name" },
       avatar: "avatar-url",
       origin: "origin-url",
-      chain: "ethereum2-beacon-chain-prysm",
+      chain: {
+        driver: "ethereum2-beacon-chain-prysm"
+      },
       isCore: true,
       isMain: true,
       dockerTimeout: 10,
@@ -53,7 +55,9 @@ describe("Parse and validate manifest labels to be used in the compose", () => {
       dependencies: { oneDependency: "dependency-name" },
       avatar: "avatar-url",
       origin: "origin-url",
-      chain: '{"driver": "ethereum2-beacon-chain-prysm"}',
+      chain: {
+        driver: "ethereum2-beacon-chain-prysm"
+      },
       isCore: true,
       isMain: true,
       dockerTimeout: 10,

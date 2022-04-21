@@ -1,14 +1,16 @@
 :root {
   --sidebar-breakpoint: 40rem;
   --sidenav-width: 12.5rem;
-  --transition-time: 0.25s;
+  --sidenav-collapsed-width: 4.75rem;
+  --transition-time: 0.5s;
   --topbar-height: 3.5rem;
   --container-padding: 1.5rem;
   --color-white: white; // Used by sidebar and topbar
+  --color-black: #212121; // Used by topbar
   --color-light-border: #e5e5e5;
-  --color-dark-border: #282828;
+  --color-dark-border: #616161;
   --color-light-background: #f7f9f9;
-  --color-dark-background: #121212;
+  --color-dark-background: #424242;
   --border-size: 0.08rem;
   --border-style-light: var(--border-size) solid var(--color-light-border);
   --border-style-dark: var(--border-size) solid var(--color-dark-border);
@@ -25,6 +27,48 @@
   --z-index-topbar: 1000;
 }
 
+/*
+  COLORS
+*/
+#light.body {
+  background-color: var(--color-light-background);
+}
+#light {
+  #main {
+    background-color: var(--color-light-background);
+  }
+  #sidebar {
+    background-color: var(--color-white);
+    border-right: var(--border-style-light);
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px;
+  }
+  #topbar {
+    background-color: var(--color-white);
+  }
+  .body {
+    background-color: var(--color-light-background);
+  }
+}
+#dark.body {
+  background-color: var(--color-dark-background);
+}
+#dark {
+  #main {
+    background-color: var(--color-dark-background);
+  }
+  #sidebar {
+    background-color: var(--color-dark-background);
+    border-right: var(--border-style-dark);
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px;
+  }
+  #topbar {
+    background-color: var(--color-dark-background);
+  }
+  .body {
+    background-color: var(--color-dark-background);
+  }
+}
+
 /* 
   TEXT STYLES 
 */
@@ -38,6 +82,7 @@ body {
 
 html,
 body,
+.body,
 #root {
   margin: 0;
   padding: 0;
@@ -54,11 +99,6 @@ body,
 .body {
   /* ### Todo: Substract the topbar height to prevent showing scrollbar when not necessary */
   /* min-height: calc(100vh - var(--topbar-height)); */
-  background-color: var(--color-light-background);
-}
-html,
-body {
-  background-color: var(--color-light-background);
 }
 
 /********
@@ -70,7 +110,7 @@ body {
 #sidebar {
   /* Basic sizing */
   position: fixed;
-  top: 0;
+  top: var(--topbar-height);
   bottom: 0;
   left: 0;
   width: var(--sidenav-width);
@@ -82,10 +122,6 @@ body {
   overflow-x: hidden;
   /* While the sidenav is collapsing, make sure the content stays straight */
   white-space: nowrap;
-  /* Colors */
-  background-color: var(--color-white);
-  border-right: var(--border-style-light);
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px;
   /* place sidebar on top of the header and content */
   z-index: var(--z-index-sidebar);
 
@@ -157,13 +193,11 @@ body {
   left: 0;
   right: 0;
   height: var(--topbar-height);
+  border-bottom: var(--border-style-light);
   /* Postion left and right divs on each side + security gap margin */
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 1em;
-  /* Colors */
-  background-color: var(--color-white);
-  border-bottom: var(--border-style-light);
   padding: 0 var(--container-padding);
   /* place topbar between the sidebar (2) and the main (0) */
   z-index: var(--z-index-topbar);
@@ -203,7 +237,6 @@ body {
   position: relative;
   margin-top: var(--topbar-height);
   margin-left: var(--sidenav-width);
-  background-color: var(--color-light-background);
   padding: var(--container-padding);
 
   > div {
@@ -219,17 +252,17 @@ body {
   node's scroll position was reseted.
 */
 #main,
-#topbar {
+#topbar,
+#sidebar {
   transition: margin-left var(--transition-time);
 }
 @media only screen and (max-width: 40rem) {
-  #sidebar.collapsed {
-    width: 0;
+  #sidebar {
+    width: var(--sidenav-collapsed-width);
     border-right-width: 0;
   }
-  #main,
-  #topbar {
-    margin-left: 0;
+  #main {
+    margin-left: var(--sidenav-collapsed-width);
   }
 }
 

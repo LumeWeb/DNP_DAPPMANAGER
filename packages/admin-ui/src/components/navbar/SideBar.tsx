@@ -40,7 +40,9 @@ export default function SideBar({ screenWidth }: { screenWidth: number }) {
       <div className="spacer" />
 
       <div className="funded-by">
-        <div className="funded-by-text">SUPPORTED BY</div>
+        {screenWidth > 640 && (
+          <div className="funded-by-text">SUPPORTED BY</div>
+        )}
         <div className="funded-by-logos">
           {fundedBy.map((item, i) => (
             <a key={i} href={item.link}>

@@ -1,15 +1,24 @@
 :root {
-  --sidenav-width: 12.5rem;
-  --sidenav-collapsed-width: 4.75rem;
-  --transition-time: 0.5s;
-  --topbar-height: 3.5rem;
-  --container-padding: 1.5rem;
+  // Colors
+  --dappnode-white-color: #fff;
+  --dappnode-strong-main-color: #2fbcb2;
+  --dappnode-darker-main-color: #218a82;
+  --dappnode-shadow-main-color: #218a8280;
+  --dappnode-light-main-color: #a0bdbb;
+  --dappnode-gray-main-color: #748888;
+
   --color-white: white; // Used by sidebar and topbar
   --color-black: #212121; // Used by topbar
   --color-light-border: #e5e5e5;
   --color-dark-border: #616161;
   --color-light-background: #f7f9f9;
   --color-dark-background: #424242;
+  // Widths
+  --sidenav-width: 12.5rem;
+  --sidenav-collapsed-width: 4.75rem;
+  --transition-time: 0.25s;
+  --topbar-height: 3.5rem;
+  --container-padding: 1.5rem;
   --border-size: 0.08rem;
   --border-style-light: var(--border-size) solid var(--color-light-border);
   --border-style-dark: var(--border-size) solid var(--color-dark-border);
@@ -56,16 +65,18 @@
     background-color: var(--color-dark-background);
   }
   #sidebar {
-    background-color: var(--color-dark-background);
+    background-color: var(--color-black);
     border-right: var(--border-style-dark);
     box-shadow: rgba(0, 0, 0, 0.1) 1px 0px 15px;
   }
   #topbar {
-    background-color: var(--color-dark-background);
+    background-color: var(--color-black);
   }
   .body {
     background-color: var(--color-dark-background);
   }
+
+  color: var(--dappnode-strong-main-color);
 }
 
 /* 

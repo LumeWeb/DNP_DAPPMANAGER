@@ -1,5 +1,4 @@
 :root {
-  --sidebar-breakpoint: 40rem;
   --sidenav-width: 12.5rem;
   --sidenav-collapsed-width: 4.75rem;
   --transition-time: 0.5s;
@@ -258,6 +257,7 @@ body,
 }
 @media only screen and (max-width: 40rem) {
   #sidebar {
+    transition: width var(--transition-time);
     width: var(--sidenav-collapsed-width);
     border-right-width: 0;
   }

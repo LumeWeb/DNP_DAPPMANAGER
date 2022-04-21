@@ -54,6 +54,12 @@
   }
 }
 
+@media only screen and (max-width: 40rem) {
+  .sidenav-item {
+    border: 0;
+  }
+}
+
 /* Funded-by
    =========
  */
